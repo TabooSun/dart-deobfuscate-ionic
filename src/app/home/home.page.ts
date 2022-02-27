@@ -27,7 +27,7 @@ export class HomePage {
         // Skip them
         continue;
       }
-      for (const char of obfuscated) characters.add(char);
+      for (const char of obfuscated) { characters.add(char); }
       map[obfuscated] = deobfuscated;
     }
 
@@ -38,12 +38,12 @@ export class HomePage {
         continue;
       }
       let end = start;
-      while (characters.has(report[end])) end++;
+      while (characters.has(report[end])) { end++; }
       const replacement = map[report.substr(start, end - start)];
       if (replacement) {
         report = report.substr(0, start) + replacement + report.substr(end);
         start += replacement.length;
-      } else start = end;
+      } else { start = end; }
     }
 
     this.report = report;
